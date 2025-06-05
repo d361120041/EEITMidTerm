@@ -1,0 +1,204 @@
+/* 基本設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+/* 容器樣式 */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 標題 */
+h2 {
+    font-size: 28px;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 檔案上傳區域 */
+.file-upload {
+    margin-bottom: 40px;
+}
+
+.file-upload h3 {
+    font-size: 22px;
+    color: #34495E;
+    margin-bottom: 15px;
+}
+
+.file-upload form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-upload label {
+    font-size: 16px;
+    color: #7F8C8D;
+    margin-bottom: 10px;
+}
+
+.file-upload input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.file-upload button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.file-upload button:hover {
+    background-color: #2980b9;
+}
+
+/* 表單管理區域 */
+.form-management {
+    margin-bottom: 40px;
+}
+
+.form-management h3 {
+    font-size: 20px;
+    color: #E74C3C;
+    margin-bottom: 20px;
+}
+
+/* 表單樣式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #7F8C8D;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* 錯誤訊息 */
+.error {
+    color: #E74C3C;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 按鈕樣式 */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+button[type="button"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+    background-color: #c0392b;
+}
+
+/* 資料列表區域 */
+.data-list {
+    margin-top: 40px;
+}
+
+.data-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.data-list th, .data-list td {
+    padding: 12px 20px;
+    border: 1px solid #BDC3C7;
+}
+
+.data-list th {
+    background-color: #3498db;
+    color: white;
+}
+
+.data-list td {
+    background-color: #f9f9f9;
+}
+
+.data-list tr:nth-child(even) td {
+    background-color: #ecf0f1;
+}
+
+.data-list td:last-child {
+    text-align: center;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .data-list table {
+        font-size: 14px;
+    }
+}

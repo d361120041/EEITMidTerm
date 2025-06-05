@@ -1,0 +1,35 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: midterm-project
+
+  # thymeleaf設定
+  thymeleaf:
+    prefix: classpath:/templates
+
+  # 資料庫連線資訊
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=javamidterm;trustServerCertificate=true;
+    username: sa
+    password: P@ssw0rd
+
+  # JPA設定
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # servlet設定
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+                

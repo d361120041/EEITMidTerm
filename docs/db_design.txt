@@ -1,0 +1,26 @@
+資料表一
+流水號, id, BIGINT, IDENTITY(1,1) PRIMARY KEY
+機構名稱, institutionname, NVARCHAR(255), NOT NULL
+機構代碼, institutioncode, NVARCHAR(20), NOT NULL
+地址全址, address, NVARCHAR(255), NOT NULL
+特約服務項目, serviceitems, NVARCHAR(255), NOT NULL
+機構電話, phone, NVARCHAR(15), 無約束
+電子郵件, email, NVARCHAR(255), 無約束
+機構負責人姓名, managername, NVARCHAR(50), 無約束
+特約起日, contractstartdate, DATE, NOT NULL
+特約迄日, contractenddate, DATE, NOT NULL
+最後異動時, lastmodifieddate, DATE, NOT NULL
+資料建立者帳號, createdby, NVARCHAR(50), 無約束
+資料建立時間, createdat, DATETIME, NOT NULL
+資料修改者帳號, modifiedby, NVARCHAR(50), 無約束
+資料修改時間, modifiedat, DATETIME, 無約束
+
+
+資料表二
+流水號, id, BIGINT, IDENTITY(1,1) PRIMARY KEY
+帳號, account, NVARCHAR(50), NOT NULL
+密碼, password, NVARCHAR(255), NOT NULL
+資料建立者帳號, createdby, NVARCHAR(50), 無約束
+資料建立時間, createdat, DATETIME, NOT NULL
+資料修改者帳號, modifiedby, NVARCHAR(50), 無約束
+資料修改時間, modifiedat, DATETIME, 無約束

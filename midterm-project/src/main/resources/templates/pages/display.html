@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機構資料列表</title>
+    <link rel="stylesheet" th:href="@{/css/display.css}"> <!-- 可選: 外部樣式表 -->
+</head>
+<body>
+    <div class="container">
+        <!-- 返回按鈕 -->
+        <div class="navigation" style="float: right">
+            <a th:href="@{/pages/institution}" class="btn">返回</a>
+        </div>
+        <!-- 上傳結果或其他訊息 -->
+        <div class="messages" style="clear: both">
+            <h3 class="error">[[${fileupload ?: ''}]]</h3>
+            <h3>
+                查詢結果：[[${select != null ? #lists.size(select) : 0}]] 筆資料
+            </h3>
+        </div>
+
+        <!-- 資料表格 -->
+        <div class="data-table">
+            <table th:if="${select ne null and not #lists.isEmpty(select)}">
+                <thead>
+                    <tr>
+                        <th>機構ID</th>
+                        <th>機構名稱</th>
+                        <th>機構代碼</th>
+                        <th>地址</th>
+                        <th>服務項目</th>
+                        <th>機構電話</th>
+                        <th>電子郵件</th>
+                        <th>機構負責人姓名</th>
+						<!-- 
+                        <th>特約起日</th>
+                        <th>特約迄日</th>
+                        <th>最後異動時間</th>
+						 -->
+                        <!-- 
+                        <th>資料建立者帳號</th>
+                        <th>資料建立時間</th>
+                        <th>資料修改者帳號</th>
+                        <th>資料修改時間</th>
+                         -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="institution : ${select}">
+                        <td th:text="${institution.id}"></td>
+                        <td>
+                            <a th:href="@{/pages/institution(
+                                id=${institution.id},
+                                institutionname=${institution.institutionname},
+                                institutioncode=${institution.institutioncode},
+                                address=${institution.address},
+                                serviceitems=${institution.serviceitems},
+                                phone=${institution.phone},
+                                email=${institution.email},
+                                managername=${institution.managername},
+                                contractstartdate=${institution.contractstartdate},
+                                contractenddate=${institution.contractenddate},
+                                lastmodifieddate=${institution.lastmodifieddate},
+                                createdby=${institution.createdby},
+                                createdat=${institution.createdat},
+                                modifiedby=${institution.modifiedby},
+                                modifiedat=${institution.modifiedat}
+                            )}" th:text="${institution.institutionname}"></a>
+                        </td>
+                    	<!-- 
+                    	 -->
+                        <td th:text="${institution.institutioncode}"></td>
+                        <td th:text="${institution.address}"></td>
+                        <td th:text="${institution.serviceitems}"></td>
+                        <td th:text="${institution.phone}"></td>
+                        <td th:text="${institution.email}"></td>
+                        <td th:text="${institution.managername}"></td>
+						<!-- 
+                        <td th:text="${institution.contractstartdate}"></td>
+                        <td th:text="${institution.contractenddate}"></td>
+                        <td th:text="${institution.lastmodifieddate}"></td>
+                        <td th:text="${institution.createdby}"></td>
+                        <td th:text="${institution.createdat}"></td>
+                        <td th:text="${institution.modifiedby}"></td>
+                        <td th:text="${institution.modifiedat}"></td>
+						 -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

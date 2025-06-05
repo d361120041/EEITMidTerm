@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機構資料管理</title>
+    <link rel="stylesheet" th:href="@{/css/institution.css}">
+    <script type="text/javascript">
+        function clearForm() {
+            document.querySelectorAll("#institutionForm input").forEach(input => {
+                if (!input.disabled) {
+                    input.value = "";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>機構資料管理</h2>
+
+        <!-- 檔案上傳 -->
+        <section class="file-upload">
+            <h3>檔案上傳</h3>
+            <div th:if="${fileupload}" class="error">
+                <p th:text="${fileupload}"></p>
+            </div>
+            <form method="post" th:action="@{/controller/pages/fileupload}" enctype="multipart/form-data">
+                <label for="file">選擇檔案</label>
+                <input type="file" id="file" name="file" required>
+                <button type="submit">上傳並轉檔</button>
+            </form>
+        </section>
+
+        <!-- 表單管理 -->
+        <section class="form-management">
+            <h3 class="error" th:if="${errors}">
+                <span th:text="${errors['action']}"></span>
+            </h3>
+            
+            <form id="institutionForm" th:action="@{/controller/pages/institution}" method="post">
+                <div class="form-group">
+                    <label for="id">機構 ID</label>
+                    <input type="text" id="id" name="id" th:value="${param.id}">
+                    <span class="error" th:if="${errors}" th:text="${errors['id']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="institutionname">機構名稱</label>
+                    <input type="text" id="institutionname" name="institutionname" th:value="${param.institutionname}">
+                    <span class="error" th:if="${errors}" th:text="${errors['institutionname']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="institutioncode">機構代碼</label>
+                    <input type="text" id="institutioncode" name="institutioncode" th:value="${param.institutioncode}">
+                    <span class="error" th:if="${errors}" th:text="${errors['institutioncode']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">地址</label>
+                    <input type="text" id="address" name="address" th:value="${param.address}">
+                    <span class="error" th:if="${errors}" th:text="${errors['address']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceitems">服務項目</label>
+                    <input type="text" id="serviceitems" name="serviceitems" th:value="${param.serviceitems}">
+                    <span class="error" th:if="${errors}" th:text="${errors['serviceitems']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">電話</label>
+                    <input type="text" id="phone" name="phone" th:value="${param.phone}">
+                    <span class="error" th:if="${errors}" th:text="${errors['phone']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">電子郵件</label>
+                    <input type="email" id="email" name="email" th:value="${param.email}">
+                    <span class="error" th:if="${errors}" th:text="${errors['email']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="managername">負責人姓名</label>
+                    <input type="text" id="managername" name="managername" th:value="${param.managername}">
+                    <span class="error" th:if="${errors}" th:text="${errors['managername']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractstartdate">合約開始日期</label>
+                    <input type="date" id="contractstartdate" name="contractstartdate" th:value="${param.contractstartdate}">
+                    <span class="error" th:if="${errors}" th:text="${errors['contractstartdate']}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractenddate">合約結束日期</label>
+                    <input type="date" id="contractenddate" name="contractenddate" th:value="${param.contractenddate}">
+                    <span class="error" th:if="${errors}" th:text="${errors['contractenddate']}"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastmodifieddate">最後異動時間</label>
+                    <input type="date" id="lastmodifieddate" name="lastmodifieddate" th:value="${param.lastmodifieddate}">
+                    <span class="error" th:if="${errors}" th:text="${errors['lastmodifieddate']}"></span>
+                </div>
+                
+					<!-- 
+                <div class="form-group">
+		            <label for="createdby">資料建立者帳號</label>
+					<input type="text" id="createdby" name="createdby" th:value="${session['insertUser']!=null ? session['insertUser']['createdby'] : ''}" disabled>
+					<span class="error" th:if="${errors}" th:text="${errors['createdby']}"></span>
+                </div>
+					
+                <div class="form-group">
+					<label for="createdat">資料建立時間</label>
+					<input type="datetime-local" id="createdat" name="createdat" th:value="${param.createdat}" disabled>
+					<span class="error" th:if="${errors}" th:text="${errors['createdat']}"></span>
+                </div>
+                
+                <div class="form-group">
+		            <label for="modifiedby">資料修改者帳號</label>
+					<input type="text" id="modifiedby" name="modifiedby" th:value="${session['user']['account']}" disabled>
+					<span class="error" th:if="${errors}" th:text="${errors['modifiedby']}"></span>
+                </div>
+
+                <div class="form-group">
+					<label for="modifiedat">資料修改時間</label>
+					<input type="datetime-local" id="modifiedat" name="modifiedat" th:value="${param.modifiedat}" disabled>
+					<span class="error" th:if="${errors}" th:text="${errors['modifiedat']}"></span>
+                </div>
+					 -->
+
+                <div class="form-actions">
+                    <button type="submit" name="button" value="Insert">新增</button>
+                    <button type="submit" name="button" value="Update">修改</button>
+                    <button type="submit" name="button" value="Delete">刪除</button>
+                    <button type="submit" name="button" value="Select">查詢</button>
+                    <button type="button" onclick="clearForm()">清空</button>
+                </div>
+            </form>
+        </section>
+
+        <h3 th:if="${delete}">
+			<script type="text/javascript">clearForm();</script>
+        </h3>
+            
+        <!-- 資料列表顯示 -->
+		<section class="data-list" th:if="${insert != null || update != null}">
+            <h3>資料管理資訊</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>流水號</th>
+                        <th>機構名稱</th>
+                        <th>資料建立者帳號</th>
+                        <th>資料建立時間</th>
+                        <th>資料修改者帳號</th>
+                        <th>資料修改時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${insert}">
+                        <td th:text="${insert.id}"></td>
+                        <td th:text="${insert.institutionname}"></td>
+                        <td th:text="${insert.createdby}"></td>
+                        <td th:text="${insert.createdat}"></td>
+                        <td th:text="${insert.modifiedby}"></td>
+                        <td th:text="${insert.modifiedat}"></td>
+                    </tr>
+                    <tr th:if="${update}">
+                        <td th:text="${update.id}"></td>
+                        <td th:text="${update.institutionname}"></td>
+                        <td th:text="${update.createdby}"></td>
+                        <td th:text="${update.createdat}"></td>
+                        <td th:text="${update.modifiedby}"></td>
+                        <td th:text="${update.modifiedat}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">clearForm();</script>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* 設定全局字型和基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 容器樣式 */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* 標題樣式 */
+h1, h3 {
+    color: #2C3E50;
+}
+
+/* 歡迎文字 */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    color: #7F8C8D;
+}
+
+/* 登入與機構管理連結容器 */
+.link-container {
+    margin-top: 30px;
+}
+
+/* 連結樣式 */
+.link {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* 如果登入後，機構管理的連結顯示樣式 */
+.link-container span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* 為 h3 和 h1 加些間距 */
+h1, h3 {
+    margin-bottom: 20px;
+}
+
+/* 讓網頁在小螢幕上有更好的顯示效果 */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .link {
+        font-size: 16px;
+    }
+}
